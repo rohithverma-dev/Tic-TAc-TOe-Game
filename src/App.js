@@ -6,12 +6,14 @@ function App() {
   const [arr, setArr] = useState(Array(9).fill(null))
   const [winner, setWinner] = useState(null)
   const handleClick = (ele) => {
-    if (arr[Number(ele.id)] === null) {
-      setArr((prev) => {
-        prev[Number(ele.id)] = toss
-        return [...prev]
-      })
-      setToss(toss === "X" ? "O" : "X")
+    if (!winner) {
+      if (arr[Number(ele.id)] === null) {
+        setArr((prev) => {
+          prev[Number(ele.id)] = toss
+          return [...prev]
+        })
+        setToss(toss === "X" ? "O" : "X")
+      }
     }
   }
 
